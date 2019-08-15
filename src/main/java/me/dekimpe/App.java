@@ -16,6 +16,7 @@ public class App
                 .getOrCreate();
         Dataset<Row> df = spark.read()
                 .format("com.databricks.spark.xml")
+                .option("rootTag", "pages")
                 .load("hdfs://hdfs-namenode:9000/input/" + args[0]);
         
         df.write().mode(SaveMode.Overwrite).format("avro").save("hdfs://hdfs-namenode:9000/schemas/" + args[1]);
