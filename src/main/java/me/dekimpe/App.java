@@ -15,7 +15,7 @@ public class App
                 .master("spark://192.168.10.14:7077")
                 .getOrCreate();
         Dataset<Row> df = spark.read()
-                .format("xml")
+                .format("com.databricks.spark.xml")
                 .load("hdfs://hdfs-namenode:9000/input/" + args[0]);
         
         df.write().mode(SaveMode.Overwrite).format("avro").save("hdfs://hdfs-namenode:9000/schemas/" + args[1]);
