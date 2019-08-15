@@ -17,7 +17,8 @@ public class App
         
         Dataset<Row> df = spark.read()
                 .format("com.databricks.spark.xml")
-                .option("rootTag", "pages")
+                .option("rootTag", "mediawiki")
+                .option("rowTag", "page")
                 .load("hdfs://hdfs-namenode:9000/input/" + args[0]);
         
         df.printSchema();
