@@ -23,7 +23,5 @@ public class App
         
         df.write().mode(SaveMode.Overwrite).format("avro").save("hdfs://hdfs-namenode:9000/schemas/" + args[1]);
         
-        System.out.println( "Hello World! It's Done." );
-        
     }
 }
