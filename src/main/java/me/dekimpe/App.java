@@ -22,6 +22,7 @@ public class App
                 .load("hdfs://hdfs-namenode:9000/input/" + args[0]);
         
         df.printSchema();
+        
         //df.write().mode(SaveMode.Overwrite).format("avro").save("hdfs://hdfs-namenode:9000/schemas/" + args[1]);
         
     }
